@@ -46,7 +46,7 @@ main () {
       continue;
     fi
 
-    if echo ${line} | grep -qi "$DAY."; then
+    if echo ${line} | grep -qi " $DAY. "; then
       print_date "$line";
       ((LINE_COUNTER++));
     fi
