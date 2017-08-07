@@ -29,7 +29,7 @@ print_praad () {
 }
 
 main () {
-  curl -s ${URL} | pup 'p[style="text-align: center;"] > span text{}' | while read line; do
+  curl -s ${URL} | pup '#normalcontent p > span:not([style*="color"]) text{}' | while read line; do
     if ((LINE_COUNTER > 2)); then
       echo "--- Head isu! ---";
       exit 0;
@@ -46,7 +46,7 @@ main () {
       continue;
     fi
 
-    if echo ${line} | grep -qi " $DAY. "; then
+    if echo ${line} | grep -qi " $DAY."; then
       print_date "$line";
       ((LINE_COUNTER++));
     fi
