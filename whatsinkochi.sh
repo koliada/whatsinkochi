@@ -29,7 +29,7 @@ print_praad () {
 }
 
 main () {
-  curl -s ${URL} | pup '#normalcontent p > span:not([style*="color"]) text{}' | while read line; do
+  curl -s ${URL} | pup '#normalcontent p > span text{}' | while read line; do
     if ((LINE_COUNTER > 2)); then
       echo "--- Head isu! ---";
       exit 0;
